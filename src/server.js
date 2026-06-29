@@ -65,7 +65,7 @@ const startServer = async () => {
 
   // Global error handler
   app.use((err, req, res, next) => {
-    console.error("Unhandled error:", err);
+    console.error("Unhandled global error:", err);
     res.status(err.status || 500).json({ message: err.message || "Internal server error" });
   });
 
