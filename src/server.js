@@ -50,7 +50,7 @@ const startServer = async () => {
     res.status(200).json({ status: "ok" });
   });
 
-  app.use("/api/auth", authRoutes);
+  app.use("/api/account", authRoutes);
   app.use("/api/recipes", recipeRoutes);
   app.use("/api/favorites", favoriteRoutes);
   app.use("/api/reports", reportRoutes);
