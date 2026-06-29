@@ -7,17 +7,9 @@ import mongoose from "mongoose";
  *  - Google OAuth login flow
  *  - Credential login (email/password) as a secondary path
  *  - Its own session/account/verification collections in MongoDB
- *
- * In addition to Better Auth's own session, our custom JWT
- * (see middleware/verifyToken.js) is issued by our /api/auth/jwt-login
- * route and stored in an HTTPOnly cookie, satisfying the challenge
- * requirement of "Token Generation / HTTPOnly Cookie / Verify Middleware".
  */
 
-const getDb = () => {
-  const client = mongoose.connection.getClient();
-  return client.db();
-};
+
 
 const isProduction = process.env.NODE_ENV === "production";
 
