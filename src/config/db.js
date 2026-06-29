@@ -14,9 +14,9 @@ export const connectDB = async () => {
       dbName: "recipehub",
     });
     isConnected = true;
-    console.log("✅ MongoDB connected successfully");
+    console.log("MongoDB connected successfully");
   } catch (error) {
-    console.error("❌ MongoDB connection error:", error.message);
+    console.error("MongoDB connection error:", error.message);
     process.exit(1);
   }
 };
