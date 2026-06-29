@@ -11,7 +11,7 @@ const favoriteSchema = new mongoose.Schema(
 );
 
 // A user can favorite a given recipe only once
-favoriteSchema.index({ userId: 1, recipeId: 1 }, { unique: true });
+
 
 const Favorite = mongoose.model("Favorite", favoriteSchema);
 export default Favorite;
