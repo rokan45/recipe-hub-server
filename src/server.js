@@ -35,7 +35,7 @@ const startServer = async () => {
 
   // Better Auth's own handler (Google OAuth + its session management).
   // MUST be mounted before express.json() per Better Auth's Express guide.
-  app.all("/api/auth/{*any}", toNodeHandler(auth));
+  app.all("/api/auth/*", toNodeHandler(auth));
 
   // JSON + cookie parsing for all routes below this line
   app.use(express.json());
