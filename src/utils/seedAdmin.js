@@ -23,7 +23,7 @@ const run = async () => {
     admin.passwordHash = passwordHash;
     admin.isBlocked = false;
     await admin.save();
-    console.log(`Existing user promoted/updated to admin: ${email}`);
+    console.log(`Existing user promoted to admin: ${email}`);
   } else {
     admin = await User.create({
       name,
