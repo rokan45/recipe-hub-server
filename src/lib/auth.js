@@ -19,6 +19,8 @@ const getDb = () => {
   return client.db();
 };
 
+const isProduction = process.env.NODE_ENV === "production";
+
 export const auth = betterAuth({
   database: mongodbAdapter(getDb()),
   secret: process.env.BETTER_AUTH_SECRET,
@@ -37,7 +39,15 @@ export const auth = betterAuth({
   session: {
     cookieCache: {
       enabled: true,
-      maxAge: 60 * 5, // 5 minutes
+      maxAge: 60 * 5,
+    },
+  },
+  advanced: {
+    useSecureCookies: isProduction,
+    defaultCookieAttributes: {
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
+      httpOnly: true,
     },
   },
 });
