@@ -9,7 +9,11 @@ import mongoose from "mongoose";
  *  - Its own session/account/verification collections in MongoDB
  */
 
-
+// database connection
+const getDb = () => {
+  const client = mongoose.connection.getClient();
+  return client.db();
+};
 
 const isProduction = process.env.NODE_ENV === "production";
 
