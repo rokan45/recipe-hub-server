@@ -25,6 +25,7 @@ const startServer = async () => {
   const userRoutes = (await import("./routes/userRoutes.js")).default;
 
   const app = express();
+  app.set("trust proxy", 1);
 
   app.use(
     cors({
